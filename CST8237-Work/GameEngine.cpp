@@ -99,6 +99,8 @@ void GameEngine::Draw()
 
   Vector2 transformedEndPoint = { pos.x + rotatedOffset.x, pos.y + rotatedOffset.y };
 
+  _player.Draw(renderer, deltaTime);
+
   SDL_RenderDrawLine(renderer, pos.x, pos.y, transformedEndPoint.x, transformedEndPoint.y);
 
   // Present what is in our renderer to our window.

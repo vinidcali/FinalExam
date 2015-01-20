@@ -7,6 +7,7 @@
 #endif // _GAME_ENGINE_H_*/
 
 #include "MathUtils.h"
+#include "Player.h"
 
 // Forward declaring our renderer and window.
 // Because we're using them as pointers, we don't need to know their size
@@ -34,6 +35,8 @@ protected:
 
   SDL_Window *window;
   SDL_Renderer *renderer;
+
+  Player _player;
 
   // Using the default member-wise initializer for our new struct.
   Vector2 pos;
