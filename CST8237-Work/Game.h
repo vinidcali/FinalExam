@@ -2,7 +2,8 @@
 
 #include "GameEngine.h"
 
-class Game: GameEngine
+class Game: public GameEngine
 {
-
+protected:
+  Game();
 };

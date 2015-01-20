@@ -1,5 +1,7 @@
 #pragma once 
 
+#include "MathUtils.h"
+
 class GameObject
 {
 public:
@@ -12,4 +14,6 @@ public:
 
 protected:
   GameObject();
+
+  Transform _transform;
 };
