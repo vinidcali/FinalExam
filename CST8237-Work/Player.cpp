@@ -20,4 +20,9 @@ void Player::Update(float dt)
 
 void Player::Draw(SDL_Renderer *renderer, float dt)
 {
+  SDL_RenderDrawLine(renderer,
+    _transform.position.x,
+    _transform.position.y,
+    _transform.position.x + 10,
+    _transform.position.y + 10);
 }
