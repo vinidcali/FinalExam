@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <SDL.h>
 #include <math.h>
+#include "InputManager.h"
 
 // Initializing our static member pointer.
 GameEngine* GameEngine::_instance = nullptr;
@@ -24,31 +25,23 @@ void Game::InitializeImpl()
   // Using the default member-wise initializer for our new struct.
   pos = { 100.0f, 100.0f };
   endPointOffset = { 10.0f, 0.0f };
-  speed = 10.0f;
+  speed = 100.0f;
   rotationSpeed = 360.0f;
 }
 
 void Game::UpdateImpl(float dt)
 {
-  SDL_Event evt;
-  SDL_PollEvent(&evt);
+  InputManager *im = InputManager::GetInstance();
+  im->Update(dt);
 
   // Check for user input.
-  if (evt.type == SDL_KEYDOWN)
+  if (im->IsKeyDown(SDLK_UP) == true)
   {
-    SDL_KeyboardEvent &keyboardEvt = evt.key;
-    SDL_Keycode &keyCode = keyboardEvt.keysym.sym;
-    switch (keyCode)
-    {
-    case SDLK_UP:
-      pos.y -= (speed * dt);
-      break;
-    case SDLK_DOWN:
-      pos.y += (speed * dt);
-      break;
-    default:
-      break;
-    }
+    pos.y -= (speed * dt);
+  }
+  else if (im->IsKeyDown(SDLK_DOWN) == true)
+  {
+    pos.y += (speed * dt);
   }
 }
 
