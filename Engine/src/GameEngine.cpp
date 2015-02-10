@@ -1,5 +1,6 @@
 #include "GameEngine.h"
 #include <SDL.h>
+#include <SDL_image.h>
 #include "MathUtils.h"
 
 GameEngine::GameEngine()
@@ -23,6 +24,8 @@ void GameEngine::Initialize()
 
   _renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
 
+  IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP);
+
   InitializeImpl();
 
   /* Get the time at the beginning of our game loop so that we can track the
@@ -32,10 +35,15 @@ void GameEngine::Initialize()
 
 void GameEngine::Shutdown()
 {
+  /* Stop the engine timer as we're shutting down. */
   _engineTimer.Stop();
 
   SDL_DestroyRenderer(_renderer);
   SDL_DestroyWindow(_window);
+
+  /* Quit and clean up all libraries. */
+  IMG_Quit();
+  SDL_Quit();
 }
 
 void GameEngine::Update()
