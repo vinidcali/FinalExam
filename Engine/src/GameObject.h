@@ -2,15 +2,15 @@
 
 #include "MathUtils.h"
 
-struct SDL_Renderer;
+class Graphics;
 
 class GameObject
 {
 public:
-  virtual void Initialize(SDL_Renderer *renderer) = 0;
+  virtual void Initialize(Graphics *graphics) = 0;
   
   virtual void Update(float dt) = 0;
-  virtual void Draw(SDL_Renderer *renderer, float dt) = 0;
+  virtual void Draw(Graphics *graphics, float dt) = 0;
 
   Transform& GetTransform();
 

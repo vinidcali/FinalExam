@@ -25,6 +25,15 @@
     <ClCompile Include="src\InputManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="src\Graphics.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsOpenGL.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphicsSDL.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameEngine.h">
@@ -40,6 +49,15 @@
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="src\InputManager.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsOpenGL.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicsSDL.h">
       <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>

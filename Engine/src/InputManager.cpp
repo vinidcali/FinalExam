@@ -243,6 +243,7 @@ void InputManager::Update(float dt)
     // If we have it in our map, let's remove it!
     if (keyMapItr != _keyMap.end())
     {
+      keyMapItr->second = SDL_KEYUP;
       _keysToRemove.push_back(*keyMapItr);
 
       printf("KEY UP %d\n", _keyMap.size());

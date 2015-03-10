@@ -31,7 +31,7 @@ void Game::InitializeImpl()
 
   for (auto itr = _objects.begin(); itr != _objects.end(); itr++)
   {
-    (*itr)->Initialize(_renderer);
+    (*itr)->Initialize(_graphicsObject);
   }
 }
 
@@ -46,14 +46,14 @@ void Game::UpdateImpl(float dt)
   }
 }
 
-void Game::DrawImpl(SDL_Renderer *renderer, float dt)
+void Game::DrawImpl(Graphics *graphics, float dt)
 {
   std::vector<GameObject *> renderOrder;
   CalculateDrawOrder(renderOrder);
 
   for (auto itr = renderOrder.begin(); itr != renderOrder.end(); itr++)
   {
-    (*itr)->Draw(renderer, dt);
+    (*itr)->Draw(graphics, dt);
   }
 }
 
