@@ -77,6 +77,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Cameras\Camera.cpp" />
+    <ClCompile Include="src\Cameras\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Cameras\PerspectiveCamera.cpp" />
     <ClCompile Include="src\GameEngine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\Graphics.cpp" />
@@ -84,9 +87,17 @@
     <ClCompile Include="src\GraphicsSDL.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\MathUtils.cpp" />
+    <ClCompile Include="src\MathUtils\Matrix4x4.cpp" />
+    <ClCompile Include="src\MathUtils\Transform.cpp" />
+    <ClCompile Include="src\MathUtils\Vector2.cpp" />
+    <ClCompile Include="src\MathUtils\Vector3.cpp" />
+    <ClCompile Include="src\MathUtils\Vector4.cpp" />
     <ClCompile Include="src\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Cameras\Camera.h" />
+    <ClInclude Include="src\Cameras\OrthographicCamera.h" />
+    <ClInclude Include="src\Cameras\PerspectiveCamera.h" />
     <ClInclude Include="src\GameEngine.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\Graphics.h" />

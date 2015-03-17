@@ -18,4 +18,6 @@ public:
 protected:
   void *_rendererObject;
   Vector4 _clearColour;
+
+  SDL_Window *_window;
 };

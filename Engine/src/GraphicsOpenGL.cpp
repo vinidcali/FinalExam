@@ -7,6 +7,8 @@ SDL_GLContext _glContext;
 
 void GraphicsOpenGL::Initialize(SDL_Window *window)
 {
+  _window = window;
+
   _glContext = SDL_GL_CreateContext(window);
   int success = SDL_GL_SetSwapInterval(1);
 
@@ -27,7 +29,14 @@ void GraphicsOpenGL::Initialize(SDL_Window *window)
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
 
-  gluPerspective(100.0f, 1.0f, 0.01f, 100.0f);
+  glEnable(GL_DEPTH_TEST);
+
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+  glClearDepth(1.0f);
+
+  //gluPerspective(100.0f, 1.0f, 0.01f, 100.0f);
+
+  ClearScreen();
 }
 
 void GraphicsOpenGL::Shutdown()
@@ -44,10 +53,10 @@ void GraphicsOpenGL::SetClearColour(float r, float g, float b, float a)
 void GraphicsOpenGL::ClearScreen()
 {
   // Clear the renderer with the current draw colour.
-  glClear(GL_COLOR_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void GraphicsOpenGL::Present()
 { 
-  SDL_GL_SwapWindow(SDL_GL_GetCurrentWindow());
+  SDL_GL_SwapWindow(_window);
 }

@@ -16,9 +16,15 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cube.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cube.h">
       <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>

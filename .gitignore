@@ -1,7 +1,12 @@
 */Debug/*
 *\Debug\*
 Debug/*
+Debug\*
 *.sdf
 *.opensdf
 *.suo
 *.obj
+*/obj/*
+*\obj\*
+obj/*
+obj\*

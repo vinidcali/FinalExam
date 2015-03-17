@@ -4,6 +4,7 @@
 
 union SDL_Event;
 class Graphics;
+class Camera;
 
 class Game: public GameEngine
 {
@@ -21,4 +22,7 @@ protected:
 
   void Reset();
   void CalculateDrawOrder(std::vector<GameObject *>& drawOrder);
+  void CalculateCameraViewpoint();
+
+  Camera *_camera;
 };

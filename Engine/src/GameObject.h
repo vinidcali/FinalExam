@@ -10,7 +10,7 @@ public:
   virtual void Initialize(Graphics *graphics) = 0;
   
   virtual void Update(float dt) = 0;
-  virtual void Draw(Graphics *graphics, float dt) = 0;
+  virtual void Draw(Graphics *graphics, Matrix4x4 relativeTo, float dt) = 0;
 
   Transform& GetTransform();
 
