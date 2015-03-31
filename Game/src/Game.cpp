@@ -43,12 +43,7 @@ void Game::InitializeImpl()
   Vector4 up(0.0f, 1.0f, 0.0f, 0.0f);
 
   //_camera = new PerspectiveCamera(100.0f, 1.0f, nearPlane, farPlane, position, lookAt, up);
-  _camera = new OrthographicCamera(-10.0f, 10.0f, 10.0f, -10.0f, nearPlane, farPlane, position, lookAt, up);
-
-  _objects.push_back(new Cube(Vector3(0.0f, 2.0f, 0.0f)));
-  _objects.push_back(new Cube(Vector3(1.0f, 1.0f, 0.0f)));
-  _objects.push_back(new Cube(Vector3(1.0f, 0.0f, 1.0f)));
-  _objects.push_back(new Cube(Vector3(0.0f, 1.0f, 1.0f)));
+  _gameCamera = new OrthographicCamera(-10.0f, 10.0f, 10.0f, -10.0f, nearPlane, farPlane, position, lookAt, up);
 
   for (auto itr = _objects.begin(); itr != _objects.end(); itr++)
   {
@@ -61,27 +56,6 @@ void Game::UpdateImpl(float dt)
   //SDL_Event evt;
   //SDL_PollEvent(&evt);
   InputManager::GetInstance()->Update(dt);
-
-  if (InputManager::GetInstance()->GetKeyState(SDLK_UP, SDL_KEYUP) == true)
-  {
-    Vector4 position = _camera->GetPosition();
-    position.y += 1.0f;
-
-    Vector4 lookAt = Vector4::Normalize(Vector4::Difference(Vector4(1.0f, 0.0f, 0.0f, 0.0f), position));
-
-    _camera->SetPosition(position);
-    _camera->SetLookAtVector(lookAt);
-  }
-  else if (InputManager::GetInstance()->GetKeyState(SDLK_DOWN, SDL_KEYUP) == true)
-  {
-    Vector4 position = _camera->GetPosition();
-    position.y -= 1.0f;
-
-    Vector4 lookAt = Vector4::Normalize(Vector4::Difference(Vector4(1.0f, 0.0f, 0.0f, 0.0f), position));
-
-    _camera->SetPosition(position);
-    _camera->SetLookAtVector(lookAt);
-  }
 
   for (auto itr = _objects.begin(); itr != _objects.end(); itr++)
   {
@@ -96,11 +70,11 @@ void Game::DrawImpl(Graphics *graphics, float dt)
 
   glPushMatrix();
 
-  CalculateCameraViewpoint();
+  CalculateCameraViewpoint(_gameCamera);
 
   for (auto itr = renderOrder.begin(); itr != renderOrder.end(); itr++)
   {
-    (*itr)->Draw(graphics, _camera->GetProjectionMatrix(), dt);
+    (*itr)->Draw(graphics, _gameCamera->GetProjectionMatrix(), dt);
   }
 
   glPopMatrix();
@@ -140,13 +114,15 @@ void Game::CalculateDrawOrder(std::vector<GameObject *>& drawOrder)
   }
 }
 
-void Game::CalculateCameraViewpoint()
+void Game::CalculateCameraViewpoint(Camera *camera)
 {
+  camera->Apply();
+
   Vector4 xAxis(1.0f, 0.0f, 0.0f, 0.0f);
   Vector4 yAxis(0.0f, 1.0f, 0.0f, 0.0f);
   Vector4 zAxis(0.0f, 0.0f, 1.0f, 0.0f);
 
-  Vector3 cameraVector(_camera->GetLookAtVector().x, _camera->GetLookAtVector().y, _camera->GetLookAtVector().z);
+  Vector3 cameraVector(camera->GetLookAtVector().x, camera->GetLookAtVector().y, camera->GetLookAtVector().z);
   Vector3 lookAtVector(0.0f, 0.0f, -1.0f);
 
   Vector3 cross = Vector3::Normalize(Vector3::Cross(cameraVector, lookAtVector));
@@ -156,5 +132,5 @@ void Game::CalculateCameraViewpoint()
   glRotatef(cross.y * dot, 0.0f, 1.0f, 0.0f);
   glRotatef(cross.z * dot, 0.0f, 0.0f, 1.0f);
 
-  glTranslatef(-_camera->GetPosition().x, -_camera->GetPosition().y, -_camera->GetPosition().z);
+  glTranslatef(-camera->GetPosition().x, -camera->GetPosition().y, -camera->GetPosition().z);
 }

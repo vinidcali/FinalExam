@@ -6,6 +6,7 @@ class PerspectiveCamera : public Camera
 {
 public:
   PerspectiveCamera(float fov, float aspectRatio, float nearPlane, float farPlane, Vector4 position, Vector4 look, Vector4 up);
+  void Apply();
 
 protected:
   float _fov;

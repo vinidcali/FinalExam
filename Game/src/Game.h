@@ -22,7 +22,7 @@ protected:
 
   void Reset();
   void CalculateDrawOrder(std::vector<GameObject *>& drawOrder);
-  void CalculateCameraViewpoint();
+  void CalculateCameraViewpoint(Camera *camera);
 
-  Camera *_camera;
+  Camera *_gameCamera;
 };

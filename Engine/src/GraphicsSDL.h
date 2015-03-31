@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Graphics.h"
 
 struct SDL_Renderer;

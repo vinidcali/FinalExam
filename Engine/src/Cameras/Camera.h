@@ -19,6 +19,8 @@ public:
   virtual Matrix4x4 GetViewMatrix();
   virtual Matrix4x4 GetProjectionMatrix();
 
+  virtual void Apply();
+
 protected:
   float _nearPlane;
   float _farPlane;

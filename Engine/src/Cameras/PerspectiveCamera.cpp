@@ -7,8 +7,9 @@ Camera(nearPlane, farPlane, position, look, up),
 _fov(fov),
 _aspectRatio(aspectRatio)
 {
-  _fov = fov;
-  _aspectRatio = aspectRatio;
+}
 
+void PerspectiveCamera::Apply()
+{
   gluPerspective(_fov, _aspectRatio, _nearPlane, _farPlane);
 }

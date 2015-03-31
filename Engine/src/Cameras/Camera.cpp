@@ -50,3 +50,8 @@ Matrix4x4 Camera::GetProjectionMatrix()
 {
   return Matrix4x4::Identity();
 }
+
+void Camera::Apply()
+{
+
+}

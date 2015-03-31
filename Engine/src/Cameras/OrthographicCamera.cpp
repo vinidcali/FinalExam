@@ -9,5 +9,9 @@ _rightPlane(rightPlane),
 _topPlane(topPlane),
 _bottomPlane(bottomPlane)
 {
-  glOrtho(leftPlane, rightPlane, bottomPlane, topPlane, _nearPlane, _farPlane);
+}
+
+void OrthographicCamera::Apply()
+{
+  glOrtho(_leftPlane, _rightPlane, _bottomPlane, _topPlane, _nearPlane, _farPlane);
 }

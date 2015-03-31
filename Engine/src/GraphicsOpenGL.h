@@ -2,9 +2,6 @@
 
 #include "Graphics.h"
 
-struct SDL_Window;
-#include <SDL_opengl.h>
-
 class GraphicsOpenGL : public Graphics
 {
 public:
