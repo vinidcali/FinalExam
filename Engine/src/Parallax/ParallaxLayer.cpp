@@ -3,6 +3,9 @@
 #include <SDL_image.h>
 #include <string>
 
+// Rough estimate of pixel:unit assuming no z-depth for layer.
+#define PIXELS_PER_UNIT 100
+
 ParallaxLayer::ParallaxLayer(std::string imageName, Vector2 parallaxSpeed)
 {
   _textureName = imageName;
@@ -25,6 +28,9 @@ void ParallaxLayer::Initialize(Graphics *graphics)
   _parallaxSurface = IMG_Load(_textureName.c_str());
   std::string formatName = SDL_GetPixelFormatName(_parallaxSurface->format->format);
 
+  float unitWidth = _parallaxSurface->w / PIXELS_PER_UNIT;
+  float unitHeight = _parallaxSurface->h / PIXELS_PER_UNIT;
+
   GLenum format = GetFormatForSurface(_parallaxSurface);
   _hasTransparency = _parallaxSurface->format->Amask != 0.0f;
 
@@ -46,10 +52,10 @@ void ParallaxLayer::Initialize(Graphics *graphics)
   indices = new unsigned int[6];
 
   float vertPosition = 5.5f;
-  vertices[0] = Vector3(-vertPosition, vertPosition, 0.5);
-  vertices[1] = Vector3(vertPosition, vertPosition, 0.5f);
-  vertices[2] = Vector3(-vertPosition, -vertPosition, 0.5f);
-  vertices[3] = Vector3(vertPosition, -vertPosition, 0.5f);
+  vertices[0] = Vector3(-(unitWidth / 2.0f), (unitHeight / 2.0f), 0.5);
+  vertices[1] = Vector3((unitWidth / 2.0f), (unitHeight / 2.0f), 0.5f);
+  vertices[2] = Vector3(-(unitWidth / 2.0f), -(unitHeight / 2.0f), 0.5f);
+  vertices[3] = Vector3((unitWidth / 2.0f), -(unitHeight / 2.0f), 0.5f);
 
   texCoords[0] = Vector2(0.0f, 0.0f);
   texCoords[1] = Vector2(1.0f, 0.0f);
@@ -121,6 +127,7 @@ void ParallaxLayer::Draw(Graphics *graphics, Matrix4x4 relativeTo, float dt)
   glDisable(GL_TEXTURE_2D);
 }
 
+/* Got this on StackOverflow a while back. If I can find the link, I'll provide it.*/
 GLenum ParallaxLayer::GetFormatForSurface(SDL_Surface *surface)
 {
   GLenum textureFormat = GL_NONE;
