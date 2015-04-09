@@ -2,8 +2,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "MathUtils.h"
-#include "Graphics.h"
-#include "GraphicsOpenGL.h"
+#include "Graphics/Graphics.h"
+#include "Graphics/GraphicsOpenGL.h"
 #include <SDL_opengl.h>
 
 GameEngine::GameEngine()

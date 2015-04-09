@@ -82,9 +82,9 @@
     <ClCompile Include="src\Cameras\PerspectiveCamera.cpp" />
     <ClCompile Include="src\GameEngine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
-    <ClCompile Include="src\Graphics.cpp" />
-    <ClCompile Include="src\GraphicsOpenGL.cpp" />
-    <ClCompile Include="src\GraphicsSDL.cpp" />
+    <ClCompile Include="src\Graphics\Graphics.cpp" />
+    <ClCompile Include="src\Graphics\GraphicsOpenGL.cpp" />
+    <ClCompile Include="src\Graphics\GraphicsSDL.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\MathUtils.cpp" />
     <ClCompile Include="src\MathUtils\Matrix4x4.cpp" />
@@ -92,6 +92,8 @@
     <ClCompile Include="src\MathUtils\Vector2.cpp" />
     <ClCompile Include="src\MathUtils\Vector3.cpp" />
     <ClCompile Include="src\MathUtils\Vector4.cpp" />
+    <ClCompile Include="src\Parallax\ParallaxLayer.cpp" />
+    <ClCompile Include="src\Parallax\ParallaxSystem.cpp" />
     <ClCompile Include="src\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -100,11 +102,13 @@
     <ClInclude Include="src\Cameras\PerspectiveCamera.h" />
     <ClInclude Include="src\GameEngine.h" />
     <ClInclude Include="src\GameObject.h" />
-    <ClInclude Include="src\Graphics.h" />
-    <ClInclude Include="src\GraphicsOpenGL.h" />
-    <ClInclude Include="src\GraphicsSDL.h" />
+    <ClInclude Include="src\Graphics\Graphics.h" />
+    <ClInclude Include="src\Graphics\GraphicsOpenGL.h" />
+    <ClInclude Include="src\Graphics\GraphicsSDL.h" />
     <ClInclude Include="src\InputManager.h" />
     <ClInclude Include="src\MathUtils.h" />
+    <ClInclude Include="src\Parallax\ParallaxLayer.h" />
+    <ClInclude Include="src\Parallax\ParallaxSystem.h" />
     <ClInclude Include="src\Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -11,6 +11,12 @@
     <Filter Include="Source\MathUtils">
       <UniqueIdentifier>{0c53f5db-65a8-4c75-b5a0-37d99bcdb502}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Parallax">
+      <UniqueIdentifier>{ff51667a-37be-46c3-87a3-b65319e08fc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics">
+      <UniqueIdentifier>{92c94c0b-ff97-4e8c-9976-ad7f724bfcc5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -29,15 +35,6 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="src\InputManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsOpenGL.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GraphicsSDL.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="src\Cameras\Camera.cpp">
@@ -64,6 +61,21 @@
     <ClCompile Include="src\MathUtils\Matrix4x4.cpp">
       <Filter>Source\MathUtils</Filter>
     </ClCompile>
+    <ClCompile Include="src\Parallax\ParallaxLayer.cpp">
+      <Filter>Source\Parallax</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Parallax\ParallaxSystem.cpp">
+      <Filter>Source\Parallax</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Graphics.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\GraphicsOpenGL.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\GraphicsSDL.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameEngine.h">
@@ -81,15 +93,6 @@
     <ClInclude Include="src\InputManager.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="src\Graphics.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GraphicsOpenGL.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GraphicsSDL.h">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="src\Cameras\Camera.h">
       <Filter>Source\Cameras</Filter>
     </ClInclude>
@@ -98,6 +101,21 @@
     </ClInclude>
     <ClInclude Include="src\Cameras\OrthographicCamera.h">
       <Filter>Source\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Parallax\ParallaxLayer.h">
+      <Filter>Source\Parallax</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Parallax\ParallaxSystem.h">
+      <Filter>Source\Parallax</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Graphics.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\GraphicsOpenGL.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\GraphicsSDL.h">
+      <Filter>Source\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,8 +5,9 @@
 union SDL_Event;
 class Graphics;
 class Camera;
+class ParallaxSystem;
 
-class Game: public GameEngine
+class Game : public GameEngine
 {
   friend class GameEngine;
 
@@ -25,4 +26,7 @@ protected:
   void CalculateCameraViewpoint(Camera *camera);
 
   Camera *_gameCamera;
+  Camera *_parallaxCamera;
+
+  ParallaxSystem *_backgroundParallaxSystem;
 };
