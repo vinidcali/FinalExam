@@ -81,13 +81,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\BodyNode.cpp" />
     <ClCompile Include="src\Cube.cpp" />
+    <ClCompile Include="src\Fruit.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\BodyNode.h" />
     <ClInclude Include="src\Cube.h" />
+    <ClInclude Include="src\Fruit.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

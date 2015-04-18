@@ -19,12 +19,30 @@
     <ClCompile Include="src\Cube.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fruit.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BodyNode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="src\Cube.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Player.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fruit.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BodyNode.h">
       <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>

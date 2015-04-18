@@ -5,7 +5,8 @@
 union SDL_Event;
 class Graphics;
 class Camera;
-class ParallaxSystem;
+class Player;
+class Fruit;
 
 class Game : public GameEngine
 {
@@ -22,11 +23,12 @@ protected:
   void DrawImpl(Graphics *graphics, float dt);
 
   void Reset();
-  void CalculateDrawOrder(std::vector<GameObject *>& drawOrder);
   void CalculateCameraViewpoint(Camera *camera);
 
-  Camera *_gameCamera;
-  Camera *_parallaxCamera;
+  Player *_player;
+  Fruit *_fruit;
+  int currentScore;
 
-  ParallaxSystem *_backgroundParallaxSystem;
+
+  Camera *_gameCamera;
 };
