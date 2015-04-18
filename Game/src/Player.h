@@ -30,12 +30,16 @@ public:
   void SetHeadDirection(BodyNode::Direction direction);
   const BodyNode::Direction& GetHeadDirection();
 
+  void SetHeadPosition(Vector3 position);
+  Vector3 GetHeadPosition();
+
 protected:
   std::vector<BodyNode *> _body;
   std::vector<BodyNode::Direction> _nextDirection;
   float _difference;
 
-  bool _newBodyPieceActive;
+  int _piecesToAdd;
 
+  Graphics *g;
   float _moveSpeed;
 };

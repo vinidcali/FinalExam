@@ -36,6 +36,7 @@ public:
 
   float moveSpeed;
   Cube *nodeCube;
+  bool active;
   
   Direction _direction;
   std::vector<DirectionPair> directionChange;

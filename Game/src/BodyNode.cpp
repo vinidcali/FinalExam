@@ -15,6 +15,7 @@ void BodyNode::Initialize(Graphics *graphics)
   nodeCube->Initialize(graphics);
 
   moveSpeed = 1.0f;
+  active = false;
 }
 
 void BodyNode::SetDirection(BodyNode::Direction direction)

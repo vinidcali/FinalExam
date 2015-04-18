@@ -29,6 +29,5 @@ protected:
   Fruit *_fruit;
   int currentScore;
 
-
   Camera *_gameCamera;
 };
