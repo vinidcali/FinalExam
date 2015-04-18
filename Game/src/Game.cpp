@@ -35,7 +35,7 @@ Game::Game() : GameEngine()
 Game::~Game()
 {
   // Clean up our pointers.
-  
+
 }
 
 SDL_Renderer *_renderer;
@@ -43,7 +43,7 @@ SDL_Texture *_texture;
 
 void Game::InitializeImpl()
 {
-  SDL_SetWindowTitle(_window, "Game");
+  SDL_SetWindowTitle(_window, "Final Exam Snake");
 
   float nearPlane = 0.01f;
   float farPlane = 100.0f;
@@ -98,6 +98,19 @@ void Game::UpdateImpl(float dt)
   }
 
   // Do bounds checking.
+  //using 10 and -10 because those are the planes set in the camera; but camera doesn't have any method to get these values, I think
+  if (_player->GetHeadPosition().x < -10 || _player->GetHeadPosition().x > 10 || _player->GetHeadPosition().y < -10 || _player->GetHeadPosition().y > 10) {
+	 Reset();
+  }
+/*  if ( (_player->GetHeadPosition.x >= _fruit->GetTransform().position.x && _player->GetHeadPosition.x < _fruit->GetTransform().position.x + _fruit->GetTransform().scale.x) || 
+	  (_player->GetHeadPosition.y >= _fruit->GetTransform().position.y && _player->GetHeadPosition.y < _fruit->GetTransform().position.y + _fruit->GetTransform().scale.y) ) {
+		  _player->AddBodyPiece();
+		  currentScore++;
+  } */
+
+  char title[40] = "Final Exam Snake -- ";
+  sprintf(&title[21], "%f", currentScore);
+  SDL_SetWindowTitle(_window, title);
 }
 
 void Game::DrawImpl(Graphics *graphics, float dt)
@@ -137,4 +150,29 @@ void Game::CalculateCameraViewpoint(Camera *camera)
   glRotatef(cross.z * dot, 0.0f, 0.0f, 1.0f);
 
   glTranslatef(-camera->GetPosition().x, -camera->GetPosition().y, -camera->GetPosition().z);
+}
+
+
+void Game::Reset() {
+  while (_objects.size() > 0)
+  {
+    delete _objects[_objects.size() - 1];
+    _objects.pop_back();
+  }
+  delete _gameCamera;
+  _gameCamera = nullptr; 
+
+  
+	char y;
+	printf("You lost!\nType Y if you want to play again or type anything else to exit: ");
+	scanf("%c", &y);
+
+  if (y == 'y')
+  {
+	  InitializeImpl();
+  }
+  else
+  {
+	  exit(0);
+  }
 }

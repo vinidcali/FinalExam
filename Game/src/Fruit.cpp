@@ -3,6 +3,8 @@
 
 Fruit::~Fruit()
 {
+	delete _fruitGeometry;
+  _fruitGeometry = nullptr; 
 }
 
 void Fruit::Initialize(Graphics *graphics)
